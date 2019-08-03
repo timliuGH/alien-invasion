@@ -3,6 +3,7 @@ import sys
 import pygame
 
 from settings import Settings
+from ship import Ship
 
 def run_game():
     # Initialize pygame.
@@ -16,6 +17,9 @@ def run_game():
         (ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption(ai_settings.screen_caption)
 
+    # Make a ship.
+    ship = Ship(screen)
+
     # Start main event loop.
     while True:
         # Listen for keyboard and mouse events.
@@ -25,6 +29,9 @@ def run_game():
 
         # Draw screen.
         screen.fill(ai_settings.bg_color)
+
+        # Draw ship.
+        ship.blitme()
 
         # Make the most recently drawn screen visible.
         pygame.display.flip()
