@@ -39,12 +39,13 @@ def check_events(ai_settings, screen, ship, bullets):
         elif event.type == pygame.KEYUP:
             check_keyup_events(event, ship)
 
-def update_screen(ai_settings, screen, ship, bullets):
+def update_screen(ai_settings, screen, ship, alien, bullets):
     """Draw objects and update screen."""
     screen.fill(ai_settings.bg_color)   # Draw screen.
     for bullet in bullets.sprites():    # Draw each bullet in Group
         bullet.draw_bullet()
     ship.blitme()                       # Draw ship.
+    alien.blitme()                      # Draw alien.
     pygame.display.flip()           # Make most recently drawn screen visible.
 
 def update_bullets(bullets):
