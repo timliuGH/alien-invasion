@@ -10,3 +10,6 @@ class Settings():
         self.screen_height = 800
         self.bg_color = (230, 230, 230)
         self.screen_caption = 'Alien Invasion'
+
+        # Ship settings
+        self.ship_speed_factor = 2.5
