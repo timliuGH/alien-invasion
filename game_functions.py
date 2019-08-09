@@ -49,8 +49,9 @@ def update_screen(ai_settings, screen, ship, aliens, bullets):
     aliens.draw(screen)                 # Draw aliens.
     pygame.display.flip()           # Make most recently drawn screen visible.
 
-def update_bullets(aliens, bullets):
+def update_bullets(ai_settings, screen, ship, aliens, bullets):
     """Move bullets up screen and remove old bullets."""
+    """Also handle collisions with aliens."""
     # Move bullets up screen.
     bullets.update()
     # Remove old bullets.
@@ -60,6 +61,11 @@ def update_bullets(aliens, bullets):
 
     # Check for bullets that hit aliens and remove both.
     collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
+
+    # Repopulate screen if all aliens removed.
+    if len(aliens) == 0:
+        bullets.empty()
+        create_fleet(ai_settings, screen, ship, aliens)
 
 def create_fleet(ai_settings, screen, ship, aliens):
     """Create a fleet of aliens."""
