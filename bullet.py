@@ -15,7 +15,7 @@ class Bullet(Sprite):
         self.screen = screen
 
         # Create a bullet rect at (0, 0) initially.
-        self.rect = pygame.Rect(0, 0, ai_settings, bullet_width, 
+        self.rect = pygame.Rect(0, 0, ai_settings.bullet_width, 
             ai_settings.bullet_height)
 
         # Set bullet at ship's position.
