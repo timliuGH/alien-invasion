@@ -23,3 +23,6 @@ class Settings():
 
         # Alien settings
         self.alien_speed_factor = 1
+        self.alien_drop_speed = 10
+        # alien_direction of 1 represents right; -1 represents left.
+        self.alien_direction = 1
