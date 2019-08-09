@@ -12,4 +12,4 @@ class Settings():
         self.screen_caption = 'Alien Invasion'
 
         # Ship settings
-        self.ship_speed_factor = 2.5
+        self.ship_speed_factor = 5.5

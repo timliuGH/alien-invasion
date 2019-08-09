@@ -34,10 +34,10 @@ class Ship():
         """Move ship based on movement flag."""
         # Update ship's center value instead of rect value.
         # Use if instead of elif for better transition between left/right.
-        if self.moving_right:
+        if self.moving_right and self.rect.right < self.screen_rect.right:
             # self.rect.centerx += 1
             self.center += self.ai_settings.ship_speed_factor
-        if self.moving_left:
+        if self.moving_left and self.rect.left > 0:
             # self.rect.centerx -= 1
             self.center -= self.ai_settings.ship_speed_factor
 
