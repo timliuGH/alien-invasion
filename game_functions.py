@@ -37,8 +37,18 @@ def check_events(ai_settings, screen, ship, bullets):
             check_keyup_events(event, ship)
 
 def update_screen(ai_settings, screen, ship, bullets):
+    """Draw objects and update screen."""
     screen.fill(ai_settings.bg_color)   # Draw screen.
     for bullet in bullets.sprites():    # Draw each bullet in Group
         bullet.draw_bullet()
     ship.blitme()                       # Draw ship.
     pygame.display.flip()           # Make most recently drawn screen visible.
+
+def update_bullets(bullets):
+    """Move bullets up screen and remove old bullets."""
+    # Move bullets up screen.
+    bullets.update()
+    # Remove old bullets.
+    for bullet in bullets.copy():
+        if bullet.rect.bottom <= 0:
+            bullets.remove(bullet)
